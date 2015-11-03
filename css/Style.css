@@ -1,0 +1,32 @@
+/* Styles go here */
+
+#header {
+
+  background-color: black;
+  color: white;
+  text-align: center;
+  padding: 5px;
+}
+#footer, .push {
+position:fixed;
+   left:0;
+   bottom:0;
+   width:100%;
+  background-color: grey;
+  color: white;
+  clear: both;
+  text-align: center;
+  padding: 1px;
+}
+
+#centered{
+text-align: center;
+}
+.ng-valid.ng-dirty {
+ border-color: green; 
+ padding: 2px;
+}
+.ng-invalid.ng-dirty {
+ border-color: red;
+ padding: 2px;
+}
