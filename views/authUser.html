@@ -1,0 +1,47 @@
+<div id="centered" data-ng-model="userInfo">
+    <br/>
+    <div data-ng-controller="loginController">
+        <span>
+            <button class="btn btn-info btn-md .btn-block" data-ng-hide="userInfo.isAuthenticated" data-ng-click="logIn()">Login</button>
+        </span>
+        <span data-ng-hide="!userInfo.isAuthenticated">
+            <b> Welcome, {{userInfo.profile.name}}.</b>&nbsp;&nbsp;&nbsp;&nbsp; 
+            <!--   -->
+            <button class="btn btn-info btn-sm" data-ng-hide="!userInfo.isAuthenticated" data-ng-click="logOut()">Logout</button> <br  />
+            <br/>
+            <!---->
+            <br/></span>
+
+    </div>
+    </div>
+
+                    <form name="form1" data-ng-hide="!userInfo.isAuthenticated" data-ng-submit="processForm()">
+                    <div id="Env-group" class="form-group" >
+                        <label>Environment</label>
+                        <select name="Env" class="form-control"
+                                data-ng-model="formData.env"
+                                data-ng-options="env for env in environments" required>                
+                        </select>
+                    </div>
+                    <div id="Branch-group" class="form-group">
+                        <label>Branch</label>
+                        <input type="text" name="Branch" class="form-control" placeholder="develop"
+                               data-ng-model="formData.Branch" required >
+                        <span class="help-block" data-ng-show="errorBranch">{{ errorBranch}}</span>
+                    </div>
+                    <div id="Email-group" class="form-group">
+                        <label>Email</label>
+                        <input type="email" name="EmailAlias" class="form-control" placeholder="mymail@domain.tld"
+                               data-ng-model="formData.EmailAlias" required>
+                        <span class="help-block" data-ng-show="errorEmail">{{ errorEmail}}</span>
+                    </div>
+                    <br />
+                    <button id="centered" type="submit" class="btn btn-primary btn-md"
+                            data-ng-disabled="form1.$invalid">
+                        <span class="glyphicon glyphicon-flash"></span><b> Submit! </b>
+                    </button>
+                       <span>{{submitmsg}}</span> 
+                </form>
+                        <!--<pre>
+                            {{formdata}}
+                        </pre>-->
