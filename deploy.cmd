@@ -59,8 +59,8 @@ IF /I "%IN_PLACE_DEPLOYMENT%" NEQ "1" (
   call :ExecuteCmd "%KUDU_SYNC_CMD%" -v 50 -f "%DEPLOYMENT_SOURCE%" -t "%DEPLOYMENT_TARGET%" -n "%NEXT_MANIFEST_PATH%" -p "%PREVIOUS_MANIFEST_PATH%" -i ".git;.hg;.deployment;deploy.cmd"
   IF !ERRORLEVEL! NEQ 0 goto error
 )
-echo ^(Get-Content "..\wwwroot\index.html"^) ^| ForEach-Object { $_ -replace "test", "%testvar%" } ^| Set-Content "..\wwwroot\index.html">Rep.ps1
-Powershell.exe -executionpolicy ByPass -File Rep.ps1
+::echo ^(Get-Content "..\wwwroot\index.html"^) ^| ForEach-Object { $_ -replace "test", "%testvar%" } ^| Set-Content "..\wwwroot\index.html">Rep.ps1
+Powershell.exe -executionpolicy ByPass -File ..\wwwroot\testscript.ps1
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :: Post deployment stub
