@@ -67,13 +67,15 @@ formApp.config(['$httpProvider', 'adalAuthenticationServiceProvider', '$routePro
             $scope.environments =
                     [
                         "Dev",
-                        "QA"];
+                        "QA",
+                        "UAT"];
         };
 
         // process the form
         $scope.processForm = function () {
             write = 'Environment: ' + $scope.formData.env + '\n' +
                      'Branch: ' + $scope.formData.Branch + '\n' +
+                     'Connect: ' + $scope.formData.Connect + '\n' +
                      'Email: ' + $scope.formData.EmailAlias + '\n' +
                      'User: ' + $scope.formData.user + '\nDo you want to continue?';
 
@@ -121,9 +123,9 @@ formApp.controller('loginController', ['$scope', 'adalAuthenticationService', '$
         $scope.$on("adal:loginSuccess", function () {
             //$scope.testMessage = "loginSuccess";
             console.log("Login success : ", $scope.userInfo);
-            
+
                 $location.path('/authUser');
-            
+
         });
 
         // optional
@@ -136,4 +138,3 @@ formApp.controller('loginController', ['$scope', 'adalAuthenticationService', '$
             $scope.testMessage = "It is not Authorized for resource:" + forResource;
         });
     }]);
- 
