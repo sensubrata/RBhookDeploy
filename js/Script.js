@@ -26,7 +26,7 @@ formApp.config(['$httpProvider', 'adalAuthenticationServiceProvider', '$routePro
         adalAuthenticationServiceProvider.init(
                 {
                     //tenant: 'adb017fc-41a8-4204-8e40-8d4993adaf32',
-                    clientId: 'clientId99c',
+                    clientId: 'clientId99',
                     //cacheLocation: 'localStorage',
                     redirectUri: "redirectUri99"
                 },
