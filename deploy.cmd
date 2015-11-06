@@ -60,7 +60,7 @@ IF /I "%IN_PLACE_DEPLOYMENT%" NEQ "1" (
   IF !ERRORLEVEL! NEQ 0 goto error
 )
 ::echo ^(Get-Content "..\wwwroot\index.html"^) ^| ForEach-Object { $_ -replace "test", "%testvar%" } ^| Set-Content "..\wwwroot\index.html">Rep.ps1
-Powershell.exe -executionpolicy ByPass -File ChangeConfigScript.ps1
+Powershell.exe -executionpolicy ByPass -File .\ChangeConfigScript.ps1
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :: Post deployment stub
