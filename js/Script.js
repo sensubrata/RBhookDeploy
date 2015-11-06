@@ -26,9 +26,9 @@ formApp.config(['$httpProvider', 'adalAuthenticationServiceProvider', '$routePro
         adalAuthenticationServiceProvider.init(
                 {
                     //tenant: 'adb017fc-41a8-4204-8e40-8d4993adaf32',
-                    clientId: 'e10a512d-d3b6-4a8d-8a71-05096b226bac',
+                    clientId: 'clientId99',
                     //cacheLocation: 'localStorage',
-                    redirectUri: "https://hookmeup.azurewebsites.net/authUser"
+                    redirectUri: "redirectUri99"
                 },
                     $httpProvider
                 );
@@ -84,7 +84,7 @@ formApp.config(['$httpProvider', 'adalAuthenticationServiceProvider', '$routePro
                 // do things if OK
 
                 // Send POST to webhook
-                $.ajax('https://s1events.azure-automation.net/webhooks?token=p77mF3o9Maf4Ldk6UKY3oPNP5eacOV5AYZV3rwUjpJ4%3d',
+                $.ajax('webhookURL99',
                 {
                     dataType: "json",
                     type: "POST",
