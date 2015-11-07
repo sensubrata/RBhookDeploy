@@ -3,41 +3,41 @@
 // define angular module/app
 var formApp = angular.module('formApp', ['AdalAngular', 'ngRoute']);
 
-formApp.config(['$httpProvider', 'adalAuthenticationServiceProvider', '$routeProvider','$locationProvider',
-    function ($httpProvider, adalAuthenticationServiceProvider, $routeProvider,$locationProvider) {
+formApp.config(['$httpProvider', 'adalAuthenticationServiceProvider', '$routeProvider', '$locationProvider',
+    function ($httpProvider, adalAuthenticationServiceProvider, $routeProvider, $locationProvider) {
 
         $routeProvider
-                .when('/', {
-                    templateUrl: 'views/login.html',
-                    controller: 'loginController'
-                })
-                .when('/authUser', {
-                    templateUrl: 'views/authUser.html',
-                    controller: 'formController',
-                    requireADLogin: true
-                })
-                .otherwise({redirectTo: '/authUser'});
+            .when('/', {
+                templateUrl: 'views/login.html',
+                controller: 'loginController'
+            })
+            .when('/authUser', {
+                templateUrl: 'views/authUser.html',
+                controller: 'formController',
+                requireADLogin: true
+            })
+            .otherwise({redirectTo: '/authUser'});
 
-                $locationProvider.html5Mode({
-                    enabled: true,
-                    requireBase: false
-                });
+        $locationProvider.html5Mode({
+            enabled: true,
+            requireBase: false
+        });
 
         adalAuthenticationServiceProvider.init(
-                {
-                    //tenant: 'adb017fc-41a8-4204-8e40-8d4993adaf32',
-                    clientId: 'clientId99',
-                    //cacheLocation: 'localStorage',
-                    redirectUri: "redirectUri99"
-                },
-                    $httpProvider
-                );
+            {
+                //tenant: 'adb017fc-41a8-4204-8e40-8d4993adaf32',
+                clientId: 'clientId99',
+                //cacheLocation: 'localStorage',
+                redirectUri: "redirectUri99"
+            },
+            $httpProvider
+        );
     }]);
 
 
 // create angular controller and pass in $scope and $http
-    formApp.controller('formController', ['$scope', '$http',
-    function ($scope, $http) {
+formApp.controller('formController', ['$scope', '$http',
+    function ($scope) {
         // create a blank object to hold our form information
         // $scope will allow this to pass between controller and view
         console.log("Controller loaded");
@@ -56,28 +56,29 @@ formApp.config(['$httpProvider', 'adalAuthenticationServiceProvider', '$routePro
         $scope.formData.user = $scope.user;
         if ($scope.user === "Subrata Sen" || $scope.user === "Santanu De" || $scope.user === "Bill Wilder") {
             $scope.environments =
-                    [
-                        "Dev",
-                        "QA",
-                        "UAT",
-                        "Production"];
+                [
+                    "Dev",
+                    "QA",
+                    "UAT",
+                    "Production"];
         }
 
         else if ($scope.user === "Abhishek Guha") {
             $scope.environments =
-                    [
-                        "Dev",
-                        "QA",
-                        "UAT"];
-        };
+                [
+                    "Dev",
+                    "QA",
+                    "UAT"];
+        }
+
 
         // process the form
         $scope.processForm = function () {
             write = 'Environment: ' + $scope.formData.env + '\n' +
-                     'Branch: ' + $scope.formData.Branch + '\n' +
-                     'Connect: ' + $scope.formData.Connect + '\n' +
-                     'Email: ' + $scope.formData.EmailAlias + '\n' +
-                     'User: ' + $scope.formData.user + '\nDo you want to continue?';
+            'Branch: ' + $scope.formData.Branch + '\n' +
+            'Connect: ' + $scope.formData.Connect + '\n' +
+            'Email: ' + $scope.formData.EmailAlias + '\n' +
+            'User: ' + $scope.formData.user + '\nDo you want to continue?';
 
             console.log(write);
             if (confirm(write)) {
@@ -85,19 +86,18 @@ formApp.config(['$httpProvider', 'adalAuthenticationServiceProvider', '$routePro
 
                 // Send POST to webhook
                 $.ajax('webhookURL99',
-                {
-                    dataType: "json",
-                    type: "POST",
-                    data: $scope.formData
-                });
+                    {
+                        dataType: "json",
+                        type: "POST",
+                        data: $scope.formData
+                    });
 
                 $scope.formData = {};
                 $scope.submitmsg = "You have successfullly submitted a build request."
             }
             // else { alert('Aborted') }
         };
-    } ]);
-
+    }]);
 
 
 formApp.controller('loginController', ['$scope', 'adalAuthenticationService', '$location',
@@ -113,18 +113,18 @@ formApp.controller('loginController', ['$scope', 'adalAuthenticationService', '$
             adalAuthenticationService.login();
         };
         /*
-        if ($scope.userInfo.isAuthenticated) {
-                $scope.user = $scope.userInfo.profile.name;
-                console.log("Login success : " + $scope.userInfo.profile.name);
-                //$location.path('/authUser');
-            }
-        */
+         if ($scope.userInfo.isAuthenticated) {
+         $scope.user = $scope.userInfo.profile.name;
+         console.log("Login success : " + $scope.userInfo.profile.name);
+         //$location.path('/authUser');
+         }
+         */
         // Re-route on successful Login
         $scope.$on("adal:loginSuccess", function () {
             //$scope.testMessage = "loginSuccess";
             console.log("Login success : ", $scope.userInfo);
 
-                $location.path('/authUser');
+            $location.path('/authUser');
 
         });
 
