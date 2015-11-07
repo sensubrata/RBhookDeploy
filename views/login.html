@@ -1,13 +1,18 @@
 <div id="centered" data-ng-model="userInfo">
     <br/>
+
     <div>
         <span>
-            <button class="btn btn-info btn-md .btn-block" data-ng-hide="userInfo.isAuthenticated" data-ng-click="logIn()">Login</button>
+            <button class="btn btn-info btn-md .btn-block" data-ng-hide="userInfo.isAuthenticated"
+                    data-ng-click="logIn()">Login
+            </button>
         </span>
         <span data-ng-hide="!userInfo.isAuthenticated">
             <b> Welcome, {{userInfo.profile.name}}.</b>&nbsp;&nbsp;&nbsp;&nbsp; 
             <!--   -->
-            <button class="btn btn-info btn-sm" data-ng-hide="!userInfo.isAuthenticated" data-ng-click="logOut()">Logout</button> <br  />
+            <button class="btn btn-info btn-sm" data-ng-hide="!userInfo.isAuthenticated" data-ng-click="logOut()">
+                Logout
+            </button> <br/>
             <br/>
             <!---->
             <br/></span>
