@@ -1,6 +1,6 @@
 angular.bootstrap().invoke(function($http, $timeout){
 
-    $http.get('/api/setup').then(function(res){
+    $http.get('setup.json').then(function(res){
 
         // faking ajax latency with $timout
         $timeout(function(){
