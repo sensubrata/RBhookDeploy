@@ -1,11 +1,12 @@
 // Code goes here
-
+//
 // define angular module/app
 var formApp = angular.module('formApp', ['AdalAngular', 'ngRoute']);
 
 formApp.config(['$httpProvider', 'adalAuthenticationServiceProvider', '$routeProvider', '$locationProvider',
-    function ($httpProvider, adalAuthenticationServiceProvider, $routeProvider, $locationProvider) {
-
+    function (setup, $httpProvider, adalAuthenticationServiceProvider, $routeProvider, $locationProvider) {
+        
+        console.log(setup)
         $routeProvider
             .when('/', {
                 templateUrl: 'views/login.html',
@@ -49,7 +50,7 @@ formApp.controller('formController', ['$scope', '$http',
             console.log("Login success : " + $scope.userInfo.profile.name);
         }
 
-        console.log("hey.....................");
+        console.log(setup.what);
         //console.log(typeof adalAuthenticationService.userInfo.profile);
         console.log($scope.user);
 
