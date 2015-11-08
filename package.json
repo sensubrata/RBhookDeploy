@@ -1,0 +1,13 @@
+{
+  "name": "hookapp",
+  "version": "0.2.0",
+  "description": "hookapp",
+  "main": "server.js",
+  "author": {
+    "name": "Subrata Sen",
+    "email": ""
+  },
+  "dependencies": {
+    "express": "^3.21.2"
+  }
+}
