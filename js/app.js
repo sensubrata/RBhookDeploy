@@ -38,7 +38,7 @@ formApp.config(['$httpProvider', 'adalAuthenticationServiceProvider', '$routePro
 
 // create angular controller and pass in $scope and $http
 formApp.controller('formController', ['$scope', '$http',
-    function ($scope) {
+    function ($scope, setup) {
         // create a blank object to hold our form information
         // $scope will allow this to pass between controller and view
         console.log("Controller loaded");
