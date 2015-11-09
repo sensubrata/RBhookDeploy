@@ -59,8 +59,9 @@ formApp.controller('formController', ['$scope', '$http',
                 [
                     "Dev",
                     "QA",
-                    "UAT",
-                    "Production"];
+                    "UAT1 NCUS",
+                    "Prod NCUS",
+                    "UAT2 NEUR"];
         }
 
         else if ($scope.user === "Abhishek Guha") {
@@ -68,7 +69,8 @@ formApp.controller('formController', ['$scope', '$http',
                 [
                     "Dev",
                     "QA",
-                    "UAT"];
+                    "UAT1 NCUS",
+                    "UAT2 NEUR"];
         }
 
 
