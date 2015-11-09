@@ -93,6 +93,7 @@ formApp.controller('formController', ['$scope', '$http',
                     });
 
                 $scope.formData = {};
+                $scope.formData.user = $scope.user;
                 $scope.submitmsg = "You have successfullly submitted a build request."
             }
             // else { alert('Aborted') }
