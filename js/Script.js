@@ -61,7 +61,9 @@ formApp.controller('formController', ['$scope', '$http',
                     "QA",
                     "UAT1 NCUS",
                     "Prod NCUS",
-                    "UAT2 NEUR"];
+                    "UAT2 NEUR",
+                    "UAT1 NEUR",
+                    "Prod NEUR"];
         }
 
         else if ($scope.user === "Abhishek Guha") {
@@ -70,7 +72,8 @@ formApp.controller('formController', ['$scope', '$http',
                     "Dev",
                     "QA",
                     "UAT1 NCUS",
-                    "UAT2 NEUR"];
+                    "UAT2 NEUR",
+                    "UAT1 NEUR"];
         }
 
 
@@ -87,13 +90,21 @@ formApp.controller('formController', ['$scope', '$http',
                 // do things if OK
 
                 // Send POST to webhook
+              if($scope.formData.env === "Dev" || $scope.formData.env === "QA"){
                 $.ajax('webhookURL99',
                     {
                         dataType: "json",
                         type: "POST",
                         data: $scope.formData
                     });
-
+              }else{
+                    $.ajax('webhookURL89',
+                        {
+                            dataType: "json",
+                            type: "POST",
+                            data: $scope.formData
+                        });
+               }
                 $scope.formData = {};
                 $scope.formData.user = $scope.user;
                 $scope.submitmsg = "You have successfullly submitted a build request."
