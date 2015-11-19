@@ -64,7 +64,8 @@ formApp.controller('formController', ['$scope', '$http',
                     "UAT2 NEUR",
                     "UAT1 NEUR",
                     "Prod NEUR",
-                    "DEV BridgeAPI(INTv2)"];
+                    "DEV BridgeAPI(INTv2)",
+                    "UAT2EU BridgeAPI(INTv2)"];
         }
 
         else if ($scope.user === "Abhishek Guha") {
@@ -75,7 +76,8 @@ formApp.controller('formController', ['$scope', '$http',
                     "UAT1 NCUS",
                     "UAT2 NEUR",
                     "UAT1 NEUR",
-                    "DEV BridgeAPI(INTv2)"];
+                    "DEV BridgeAPI(INTv2)",
+                    "UAT2EU BridgeAPI(INTv2)"];
         }
 
 
