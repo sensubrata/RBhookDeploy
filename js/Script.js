@@ -63,7 +63,8 @@ formApp.controller('formController', ['$scope', '$http',
                     "Prod NCUS",
                     "UAT2 NEUR",
                     "UAT1 NEUR",
-                    "Prod NEUR"];
+                    "Prod NEUR",
+                    "DEV BridgeAPI(INTv2)"];
         }
 
         else if ($scope.user === "Abhishek Guha") {
@@ -73,7 +74,8 @@ formApp.controller('formController', ['$scope', '$http',
                     "QA",
                     "UAT1 NCUS",
                     "UAT2 NEUR",
-                    "UAT1 NEUR"];
+                    "UAT1 NEUR",
+                    "DEV BridgeAPI(INTv2)"];
         }
 
 
@@ -90,7 +92,7 @@ formApp.controller('formController', ['$scope', '$http',
                 // do things if OK
 
                 // Send POST to webhook
-              if($scope.formData.env === "Dev" || $scope.formData.env === "QA"){
+              if($scope.formData.env === "Dev" || $scope.formData.env === "QA" || $scope.formData.env === "DEV BridgeAPI(INTv2)"){
                 $.ajax('webhookURL99',
                     {
                         dataType: "json",
