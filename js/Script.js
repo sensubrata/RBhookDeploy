@@ -85,6 +85,7 @@ formApp.controller('formController', ['$scope', '$http',
         $scope.processForm = function () {
             write = 'Environment: ' + $scope.formData.env + '\n' +
             'Branch: ' + $scope.formData.Branch + '\n' +
+            'ConnectOnly?: ' + $scope.formData.ConnectOnly + '\n' +
             'Connect: ' + $scope.formData.Connect + '\n' +
             'Email: ' + $scope.formData.EmailAlias + '\n' +
             'User: ' + $scope.formData.user + '\nDo you want to continue?';

@@ -35,6 +35,9 @@
         <span class="help-block" data-ng-show="errorBranch">{{ errorBranch}}</span>
     </div>
     <div id="Connect-group" ng-hide="formData.env=='QA'" class="form-group">
+      <input type="checkbox" name="ConnectOnly" class="form-control"
+          data-ng-model="formData.ConnectOnly">
+             <label>Connect Only</label>
         <label>Connect/BridgeAPI (Optional)</label>
         <input type="text" name="Connect" class="form-control" placeholder="cs or usb"
                data-ng-model="formData.Connect">
