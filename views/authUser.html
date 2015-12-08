@@ -35,7 +35,8 @@
         <span class="help-block" data-ng-show="errorBranch">{{ errorBranch}}</span>
     </div>
     <div id="Connect-group" ng-hide="formData.env=='QA'" class="form-group">
-      <div><input type="checkbox" name="ConnectOnly"
+      <div ng-hide="formData.env=='DEV BridgeAPI(INTv2)' || formData.env=='UAT2EU BridgeAPI(INTv2)'">
+          <input type="checkbox" name="ConnectOnly"
           data-ng-model="formData.ConnectOnly">
              <label>Connect Only</label>
              <a href="" title="Deploy only connect service"><span class="glyphicon glyphicon-question-sign" /></a></div>
