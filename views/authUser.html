@@ -24,7 +24,7 @@
     <div id="Env-group" class="form-group">
         <label>Environment</label>
         <select name="Env" class="form-control"
-                data-ng-model="formData.env"
+                data-ng-model="formData.env" ng-change="change()"
                 data-ng-options="env for env in environments" required>
         </select>
     </div>
