@@ -24,7 +24,7 @@
     <div id="Env-group" class="form-group">
         <label>Environment</label>
         <select name="Env" class="form-control"
-                data-ng-model="formData.env"
+                data-ng-model="formData.env" ng-change="change()"
                 data-ng-options="env for env in environments" required>
         </select>
     </div>
@@ -35,9 +35,16 @@
         <span class="help-block" data-ng-show="errorBranch">{{ errorBranch}}</span>
     </div>
     <div id="Connect-group" ng-hide="formData.env=='QA'" class="form-group">
-        <label>Connect/BridgeAPI (Optional)</label>
-        <input type="text" name="Connect" class="form-control" placeholder="cs or usb"
-               data-ng-model="formData.Connect">
+      <div ng-hide="formData.env=='DEV BridgeAPI(INTv2)' || formData.env=='UAT2EU BridgeAPI(INTv2)'">
+          <input type="checkbox" name="OnlyConnect"
+          data-ng-model="formData.OnlyConnect">
+             <label>Connect Only</label>
+             <a href="" title="Deploy only connect service"><span class="glyphicon glyphicon-question-sign" /></a></div>
+        <div><label>Connect/BridgeAPI (Optional)</label>
+        <a href="" title="Use clientname to deploy, leave blank for deployment without connect.">
+            <span class="glyphicon glyphicon-question-sign" /></a>
+        <input type="text" name="Connect" class="form-control" placeholder="cs(forConnect) or bnpp(forBridgeAPI) or usb"
+               data-ng-model="formData.Connect" ng-required="formData.OnlyConnect"></div>
         <span class="help-block" data-ng-show="errorConnect">{{ errorConnect}}</span>
     </div>
     <div id="Email-group" class="form-group">

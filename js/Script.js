@@ -80,11 +80,18 @@ formApp.controller('formController', ['$scope', '$http',
                     "UAT2EU BridgeAPI(INTv2)"];
         }
 
+        $scope.change = function () {
+            $scope.formData.OnlyConnect = '';
+            $scope.formData.Connect = '';
+            $scope.formData.Branch = '';
+            //console.log('ping')
+        };
 
         // process the form
         $scope.processForm = function () {
             write = 'Environment: ' + $scope.formData.env + '\n' +
             'Branch: ' + $scope.formData.Branch + '\n' +
+            'OnlyConnect: ' + $scope.formData.OnlyConnect + '\n' +
             'Connect: ' + $scope.formData.Connect + '\n' +
             'Email: ' + $scope.formData.EmailAlias + '\n' +
             'User: ' + $scope.formData.user + '\nDo you want to continue?';
