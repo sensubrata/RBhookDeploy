@@ -79,7 +79,13 @@ formApp.controller('formController', ['$scope', '$http',
                     "DEV BridgeAPI(INTv2)",
                     "UAT2EU BridgeAPI(INTv2)"];
         }
-
+        else if ($scope.user === "Nikhil Maskara" || $scope.user === "Hridballav Saha") {
+            $scope.environments =
+                [
+                    "Dev",
+                    "DEV BridgeAPI(INTv2)",
+                    "UAT2EU BridgeAPI(INTv2)"];
+        }
         $scope.change = function () {
             $scope.formData.OnlyConnect = '';
             $scope.formData.Connect = '';
